@@ -1,0 +1,26 @@
+{
+  "name": "Runkeeper Pace",
+  "description": "Track your running pace using the Runkeeper API",
+  "keywords": [
+    "exercise",
+    "running",
+    "runkeeper",
+    "ruby"
+  ],
+  "repository": "https://github.com/imkmf/runkeeper_pace",
+  "success_url": "/",
+  "env": {
+    "RUNKEEPER_CLIENT_ID": {
+      "description": "Your runkeeper app client id (confused? see README)",
+      "generator": "secret"
+    },
+    "RUNKEEPER_CLIENT_SECRET": {
+      "description": "Your runkeeper app client secret",
+      "generator": "secret"
+    },
+    "RUNKEEPER_PERSONAL_TOKEN": {
+      "description": "Your personal runkeeper token (needs to be generated, again see README)",
+      "generator": "secret"
+    }
+  }
+}
