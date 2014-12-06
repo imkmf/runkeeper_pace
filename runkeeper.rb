@@ -47,8 +47,8 @@ get '/data.json' do
 
   # we send this as
   # [
-  #   ["x", "2014-01-01", "2014-02-02"],
-  #   ["pace", "1.234"]
+  #   ["x", "2014-01-01", "..."],
+  #   ["pace", "1.234", "..."]
   # ]
   # to appeal our c3.js overlords, if i was more patient i'd send the actual
   # objects in @events
