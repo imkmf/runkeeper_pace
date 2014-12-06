@@ -1,6 +1,8 @@
 pace tracker for runkeeper
 ---
 
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 this is kind of a shitshow on the ruby-side, but the idea is that we talk to the runkeeper api to get our pace for our runs on the backend, and plot it using [c3.js](http://c3js.org/) on the frontend.
 
 setup:
