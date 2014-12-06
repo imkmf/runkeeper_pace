@@ -18,8 +18,11 @@ end
 
 get '/data.json' do
   @activities = settings.runkeeper.fitness_activities
+  # We don't care about non-running activities for now
   @activities.delete_if { |a| a.type != "Running" }
   @events = @activities.map { |run|
+    # total distance is in meters, this is america
+    # i'm joking please don't send me emails ugh
     distance = (run.total_distance * 0.000621371).round(2)
     time_string = run.start_time.to_date.to_s
     {
@@ -31,6 +34,9 @@ get '/data.json' do
     }
   }
 
+  # these could be fixed up and sent based on query params to get
+  # more specific views
+
   # @by_year  = @events.group_by { |e| e[:time].strftime("%Y") }.to_a
   # @by_month = @events.group_by { |e| e[:time].strftime("%m") }.to_a
   # @by_week  = @events.group_by { |e| e[:time].strftime("%U") }.to_a
@@ -38,6 +44,14 @@ get '/data.json' do
 
   @events.sort_by! { |e| e[:time] }
   content_type :json
+
+  # we send this as
+  # [
+  #   ["x", "2014-01-01", "2014-02-02"],
+  #   ["pace", "1.234"]
+  # ]
+  # to appeal our c3.js overlords, if i was more patient i'd send the actual
+  # objects in @events
   [@events.map { |e| e[:time_string] }.unshift("x"), @events.map { |e| e[:pace] }.unshift("pace")].to_json
 end
 
