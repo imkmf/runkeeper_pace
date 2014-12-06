@@ -6,8 +6,8 @@ Dotenv.load
 
 configure do
   set :runkeeper, RunKeeper.new(
-    ENV["RUNKEEPER_ACCESS_TOKEN"],
-    ENV["RUNKEEPER_ACCESS_SECRET"],
+    ENV["RUNKEEPER_CLIENT_ID"],
+    ENV["RUNKEEPER_CLIENT_SECRET"],
     ENV["RUNKEEPER_PERSONAL_TOKEN"]
   )
 end
